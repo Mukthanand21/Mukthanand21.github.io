@@ -5,9 +5,12 @@ pages:
   script:
     - npm install
     - npm run build
+    # Remove any existing public folder to avoid nesting (public/dist)
+    - rm -rf public 
+    # Move the build output to public
     - mv dist public
   artifacts:
     paths:
       - public
-  only:
-    - main
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
