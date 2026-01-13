@@ -1,0 +1,3 @@
+## Mukthanand Reddy — Portfolio
+
+This repository contains my personal portfolio website built using modern frontend technologies to showcase my academic background, projects, technical skills, certifications, and professional experience. The site is designed to be fast, responsive, and professional, with a focus on clean UI, smooth animations, and recruiter-friendly presentation. It is developed using Vite, React, Tailwind CSS, and shadcn/ui, and is deployed using GitLab Pages for reliable and free hosting.
