@@ -4,7 +4,7 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/", // ✅ REQUIRED for username.gitlab.io
+  base: process.env.VITE_BASE_PATH || "/",
 
   server: {
     host: "::",
