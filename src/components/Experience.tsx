@@ -16,10 +16,11 @@ export const Experience = () => {
       period: 'Jan 2026 – Present',
       isCurrent: true,
       responsibilities: [
-        'Contributing to research and development of AI/ML models for low-resource and Indian languages',
-        'Performing data preprocessing, annotation, and exploratory analysis for NLP and speech-based systems',
-        'Assisting in model evaluation, experimentation, and performance analysis',
-        'Contributing to ethical, inclusive, and socially impactful AI research initiatives',
+        'Built full-stack EHRS platform with React, FastAPI, and Docker',
+        'Developed Telugu ASR corpus audit pipeline (Gonthuka/wav2vec2)',
+        'Implemented RAG systems and LangChain pipelines for NLP tasks',
+        'Managed GitLab CI/CD, protected branches, and semantic commits',
+        'Contributed to Swecha FOSS community corpus collection initiative',
       ],
     },
     {

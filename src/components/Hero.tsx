@@ -1,8 +1,41 @@
 import { motion } from 'framer-motion';
 import { ArrowDown, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useState, useEffect } from 'react';
+
+const roles = [
+  'Full Stack Developer',
+  'AI/RAG Engineer',
+  'FOSS Contributor',
+  'Telugu Language Preservationist',
+];
 
 export const Hero = () => {
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [displayed, setDisplayed] = useState('');
+  const [typing, setTyping] = useState(true);
+
+  useEffect(() => {
+    const target = roles[roleIndex];
+    if (typing) {
+      if (displayed.length < target.length) {
+        const t = setTimeout(() => setDisplayed(target.slice(0, displayed.length + 1)), 60);
+        return () => clearTimeout(t);
+      } else {
+        const t = setTimeout(() => setTyping(false), 1800);
+        return () => clearTimeout(t);
+      }
+    } else {
+      if (displayed.length > 0) {
+        const t = setTimeout(() => setDisplayed(displayed.slice(0, -1)), 35);
+        return () => clearTimeout(t);
+      } else {
+        setRoleIndex((i) => (i + 1) % roles.length);
+        setTyping(true);
+      }
+    }
+  }, [displayed, typing, roleIndex]);
+
   const handleScrollToProjects = () => {
     document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -12,7 +45,7 @@ export const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden gradient-hero-bg">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden gradient-hero-bg noise-bg">
       {/* Decorative Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
@@ -36,12 +69,15 @@ export const Hero = () => {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="text-left">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
+            <span className="font-mono text-xs text-primary/70 tracking-widest uppercase mb-4 block" aria-label="Location: Hyderabad, India">
+              // Hyderabad, India
+            </span>
             <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-8 border border-primary/20">
               Computer Science Engineering Undergraduate
             </span>
@@ -51,7 +87,7 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-display font-bold mb-8"
+            className="text-5xl md:text-7xl lg:text-8xl font-display font-bold mb-4"
           >
             <span className="text-foreground">Hi, I'm </span>
             <span className="gradient-text">Mukthanand</span>
@@ -60,17 +96,27 @@ export const Hero = () => {
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed"
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="text-xl md:text-2xl text-primary font-medium mb-4 min-h-8"
           >
-            Computer Science Engineering undergraduate focused on building clean, practical full-stack applications using solid computer science fundamentals.
+            {displayed}
+            <span className="cursor-blink">|</span>
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-12 leading-relaxed"
+          >
+            Building AI that speaks Telugu. Writing code that ships.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            className="flex flex-col sm:flex-row items-start gap-4"
           >
             <Button
               size="lg"
@@ -91,27 +137,6 @@ export const Hero = () => {
             </Button>
           </motion.div>
         </div>
-
-        {/*
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 0.5 }}
-          className="absolute bottom-12 left-1/2 -translate-x-1/2"
-        >
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-            className="w-6 h-10 rounded-full border-2 border-muted-foreground/30 flex items-start justify-center p-2"
-          >
-            <motion.div
-              animate={{ opacity: [0.3, 1, 0.3], y: [0, 8, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-              className="w-1.5 h-1.5 rounded-full bg-primary"
-            />
-          </motion.div>
-        </motion.div>
-        */}
       </div>
     </section>
   );
