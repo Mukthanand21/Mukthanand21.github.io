@@ -32,6 +32,33 @@ const projects = [
     techStack: ['Spring Boot', 'HTML', 'CSS', 'JavaScript', 'REST APIs'],
     github: 'https://github.com/Mukthanand21/rebus-game',
   },
+  {
+    title: 'FAQSense',
+    period: 'Oct 2024',
+    description:
+      'Live RAG-powered FAQ assistant with semantic search. Answers questions using vector similarity over a custom knowledge base.',
+    highlights: [
+      'FAISS vector store with Sentence-Transformers embeddings',
+      'Groq API for fast LLM inference',
+      'Deployed on Streamlit Cloud with live demo',
+      'Sub-second semantic retrieval on FAQ corpus',
+    ],
+    techStack: ['FAISS', 'Sentence-Transformers', 'Groq API', 'Streamlit', 'Python'],
+    github: 'https://github.com/Mukthanand21/FAQSense',
+  },
+  {
+    title: 'FixIt — Coding Agent',
+    period: 'Dec 2024',
+    description:
+      'AI agent that detects, explains, and fixes code errors automatically. Built during a hackathon.',
+    highlights: [
+      'Groq-powered LLM backend for fast error analysis',
+      'Accepts code + error message, returns fixed code',
+      'Built and shipped in under 24 hours at hackathon',
+    ],
+    techStack: ['Groq API', 'Python', 'LangChain', 'Streamlit'],
+    github: 'https://github.com/Mukthanand21/FixIt',
+  },
 ];
 
 export const Projects = () => {
@@ -69,7 +96,7 @@ export const Projects = () => {
             </motion.h2>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-6">
             {projects.map((project, index) => (
               <motion.div
                 key={project.title}
@@ -78,7 +105,7 @@ export const Projects = () => {
                 transition={{ duration: 0.6, delay: 0.3 + index * 0.15 }}
                 className="group"
               >
-                <div className="glass-card h-full p-8 hover:shadow-card-hover transition-all duration-500 hover:-translate-y-2">
+                <div className="glass-card h-full p-8 hover:shadow-card-hover hover:border-l-4 hover:border-l-primary transition-all duration-500 hover:-translate-y-2">
                   {/* Header */}
                   <div className="flex items-start justify-between mb-4">
                     <div>
