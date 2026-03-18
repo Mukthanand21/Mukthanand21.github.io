@@ -59,6 +59,19 @@ const projects = [
     techStack: ['Groq API', 'Python', 'LangChain', 'Streamlit'],
     github: 'https://github.com/Mukthanand21/FixIt',
   },
+  {
+    title: 'Scheme Saathi',
+    period: 'Mar 2026 — Autonomous Agents Hackathon',
+    description:
+      'Telugu-first Telegram bot helping small business owners in Telangana discover relevant government schemes. Designed for accessibility and deployed live at @scheme_saathi_bot.',
+    highlights: [
+      'Agentic scheme matching powered by Groq LLM for intelligent, context-aware recommendations',
+      'STT (Speech-to-Text) & TTS (Text-to-Speech) for voice-first, non-literate user support',
+      'Built and deployed in under 2 days; community-focused tool aligned with Swecha/FOSS values',
+    ],
+    techStack: ['Python', 'nanobot', 'python-telegram-bot', 'Groq API'],
+    liveLink: 'https://t.me/scheme_saathi_bot',
+  },
 ];
 
 export const Projects = () => {
@@ -117,15 +130,27 @@ export const Projects = () => {
                         <span>{project.period}</span>
                       </div>
                     </div>
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-3 rounded-xl bg-primary/10 hover:bg-primary/20 text-primary transition-colors"
-                      aria-label="View on GitHub"
-                    >
-                      <Github className="w-5 h-5" />
-                    </a>
+                    {project.github ? (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-3 rounded-xl bg-primary/10 hover:bg-primary/20 text-primary transition-colors"
+                        aria-label="View on GitHub"
+                      >
+                        <Github className="w-5 h-5" />
+                      </a>
+                    ) : project.liveLink ? (
+                      <a
+                        href={project.liveLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-3 rounded-xl bg-primary/10 hover:bg-primary/20 text-primary transition-colors"
+                        aria-label="Open live project"
+                      >
+                        <ExternalLink className="w-5 h-5" />
+                      </a>
+                    ) : null}
                   </div>
 
                   {/* Description */}
