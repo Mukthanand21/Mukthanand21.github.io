@@ -28,7 +28,7 @@ export const Hero = () => {
               onClick={handleScrollToProjects}
               className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 px-8 py-6 text-base font-semibold rounded-xl"
             >
-              View My Work →
+              View My Work <span aria-hidden="true">→</span>
             </Button>
             <Button
               asChild
@@ -36,7 +36,7 @@ export const Hero = () => {
               variant="outline"
               className="border-primary/35 text-foreground hover:border-primary hover:text-primary hover:bg-primary/10 px-8 py-6 text-base font-semibold rounded-xl transition-all duration-300"
             >
-              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="Read resume PDF in a new tab">
                 Read Resume (PDF)
               </a>
             </Button>
