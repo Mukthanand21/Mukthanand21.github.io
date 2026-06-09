@@ -36,7 +36,7 @@ export const Hero = () => {
               variant="outline"
               className="border-primary/35 text-foreground hover:border-primary hover:text-primary hover:bg-primary/10 px-8 py-6 text-base font-semibold rounded-xl transition-all duration-300"
             >
-              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="Read resume PDF in a new tab">
+              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
                 Read Resume (PDF)
               </a>
             </Button>
