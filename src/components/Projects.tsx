@@ -1,128 +1,113 @@
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
 import { ExternalLink, Github, Calendar } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 
 const projects = [
   {
     title: 'MediFlow.ai',
     period: 'Jan 2025 – May 2025',
-    description:
-      'A full-stack web application to manage pharmacy operations including inventory, sales, suppliers, and medicine tracking with AI-powered inventory predictions.',
-    highlights: [
+    impact:
+      'Reduced manual pharmacy operations by unifying inventory, billing, and supplier workflows into one production-ready system with predictive stock planning.',
+    features: [
       'Built backend using Flask and PostgreSQL with REST APIs',
       'Frontend with React.js, Tailwind CSS, and ShadCN/UI',
       'AI-based feature to predict future inventory needs',
       'Real-time communication between frontend and backend',
     ],
     techStack: ['Flask', 'PostgreSQL', 'React.js', 'Tailwind CSS', 'REST APIs', 'AI/ML'],
+    demoLabel: 'System Demo',
+    demoLink: 'https://github.com/Mukthanand21/MediFlow.ai',
     github: 'https://github.com/Mukthanand21/MediFlow.ai',
   },
   {
     title: 'Rebus Puzzle Web Application',
     period: 'Aug 2025',
-    description:
-      'A browser-based puzzle game with dynamic API calls, real-time feedback, and responsive design for an engaging gameplay experience.',
-    highlights: [
+    impact:
+      'Improved gameplay continuity with dynamic puzzle delivery and real-time answer validation without page reloads.',
+    features: [
       'Spring Boot backend for puzzle serving and validation',
       'Responsive frontend with HTML, CSS, and JavaScript',
       'Image-based puzzles with hints system',
       'Seamless puzzle loading without page reloads',
     ],
     techStack: ['Spring Boot', 'HTML', 'CSS', 'JavaScript', 'REST APIs'],
+    demoLabel: 'System Demo',
+    demoLink: 'https://github.com/Mukthanand21/rebus-game',
     github: 'https://github.com/Mukthanand21/rebus-game',
   },
   {
     title: 'FAQSense',
     period: 'Oct 2024',
-    description:
-      'Live RAG-powered FAQ assistant with semantic search. Answers questions using vector similarity over a custom knowledge base.',
-    highlights: [
+    impact:
+      'Delivered sub-second FAQ resolution through semantic retrieval, reducing repeated support queries with RAG-powered answers.',
+    features: [
       'FAISS vector store with Sentence-Transformers embeddings',
       'Groq API for fast LLM inference',
       'Deployed on Streamlit Cloud with live demo',
       'Sub-second semantic retrieval on FAQ corpus',
     ],
     techStack: ['FAISS', 'Sentence-Transformers', 'Groq API', 'Streamlit', 'Python'],
+    demoLabel: 'Live Demo',
+    demoLink: 'https://faqsense.streamlit.app',
     github: 'https://github.com/Mukthanand21/FAQSense',
   },
   {
     title: 'FixIt — Coding Agent',
     period: 'Dec 2024',
-    description:
-      'AI agent that detects, explains, and fixes code errors automatically. Built during a hackathon.',
-    highlights: [
+    impact:
+      'Accelerated debugging workflows by automatically analyzing compiler/runtime errors and returning corrected code suggestions.',
+    features: [
       'Groq-powered LLM backend for fast error analysis',
       'Accepts code + error message, returns fixed code',
       'Built and shipped in under 24 hours at hackathon',
     ],
     techStack: ['Groq API', 'Python', 'LangChain', 'Streamlit'],
+    demoLabel: 'System Demo',
+    demoLink: 'https://github.com/Mukthanand21/FixIt',
     github: 'https://github.com/Mukthanand21/FixIt',
   },
   {
     title: 'Scheme Saathi',
     period: 'Mar 2026 — Autonomous Agents Hackathon',
-    description:
-      'Telugu-first Telegram bot helping small business owners in Telangana discover relevant government schemes. Designed for accessibility and deployed live at @scheme_saathi_bot.',
-    highlights: [
+    impact:
+      'Improved scheme discoverability for Telugu-speaking small business owners using multilingual, voice-first interactions.',
+    features: [
       'Agentic scheme matching powered by Groq LLM for intelligent, context-aware recommendations',
       'STT (Speech-to-Text) & TTS (Text-to-Speech) for voice-first, non-literate user support',
       'Built and deployed in under 2 days; community-focused tool aligned with Swecha/FOSS values',
     ],
     techStack: ['Python', 'nanobot', 'python-telegram-bot', 'Groq API'],
-    liveLink: 'https://t.me/scheme_saathi_bot',
+    demoLabel: 'Live Demo',
+    demoLink: 'https://t.me/scheme_saathi_bot',
+    github: 'https://github.com/Mukthanand21/scheme-saathi',
   },
 ];
 
 export const Projects = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
-
   return (
-    <section id="projects" className="py-16 md:py-20">
+    <section id="projects" className="py-16 md:py-20" aria-labelledby="projects-heading">
       <div className="container mx-auto px-6">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="section-container"
-        >
-          <div className="text-center mb-12">
-            <motion.span
-              initial={{ opacity: 0, y: -20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6"
-            >
+        <div className="section-container">
+          <div className="text-left mb-12">
+            <p className="font-mono text-sm md:text-base text-muted-foreground tracking-wide mb-4">
+              // Selected engineering work
+            </p>
+            <h2 id="projects-heading" className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground">
               Projects
-            </motion.span>
-
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground"
-            >
-              Featured{' '}
-              <span className="gradient-text">work</span>
-            </motion.h2>
+            </h2>
+            <p className="mt-4 text-base md:text-lg text-muted-foreground max-w-3xl leading-relaxed">
+              Production-focused systems built to solve real problems with measurable impact.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-6">
-            {projects.map((project, index) => (
-              <motion.div
+            {projects.map((project) => (
+              <article
                 key={project.title}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.3 + index * 0.15 }}
-                className="group"
+                className="glass-card h-full p-8 border border-border/60 transition-all duration-300 hover:border-primary/40 hover:-translate-y-1"
               >
-                <div className="glass-card h-full p-8 hover:shadow-card-hover hover:border-l-4 hover:border-l-primary transition-all duration-500 hover:-translate-y-2">
-                  {/* Header */}
+                <div className="h-full flex flex-col">
                   <div className="flex items-start justify-between mb-4">
                     <div>
-                      <h3 className="text-2xl font-display font-bold text-foreground group-hover:text-primary transition-colors">
+                      <h3 className="text-2xl font-display font-bold text-foreground">
                         {project.title}
                       </h3>
                       <div className="flex items-center gap-2 mt-2 text-sm text-muted-foreground">
@@ -130,77 +115,58 @@ export const Projects = () => {
                         <span>{project.period}</span>
                       </div>
                     </div>
-                    {project.github ? (
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-3 rounded-xl bg-primary/10 hover:bg-primary/20 text-primary transition-colors"
-                        aria-label="View on GitHub"
-                      >
-                        <Github className="w-5 h-5" />
-                      </a>
-                    ) : project.liveLink ? (
-                      <a
-                        href={project.liveLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-3 rounded-xl bg-primary/10 hover:bg-primary/20 text-primary transition-colors"
-                        aria-label="Open live project"
-                      >
-                        <ExternalLink className="w-5 h-5" />
-                      </a>
-                    ) : null}
                   </div>
 
-                  {/* Description */}
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
-                    {project.description}
+                  <p className="text-sm font-semibold uppercase tracking-wide text-primary mb-2">
+                    Problem solved / Impact
                   </p>
+                  <p className="text-muted-foreground mb-6 leading-relaxed">{project.impact}</p>
 
-                  {/* Highlights */}
                   <ul className="space-y-2 mb-6">
-                    {project.highlights.map((highlight, idx) => (
+                    {project.features.map((feature, idx) => (
                       <li key={idx} className="flex items-start gap-2 text-sm">
-                        <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
-                        <span className="text-muted-foreground">{highlight}</span>
+                        <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary/80 flex-shrink-0" />
+                        <span className="text-muted-foreground">{feature}</span>
                       </li>
                     ))}
                   </ul>
 
-                  {/* Tech Stack */}
                   <div className="flex flex-wrap gap-2 mb-6">
                     {project.techStack.map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium"
+                        className="px-3 py-1 rounded-full border border-border/70 bg-secondary/35 text-secondary-foreground text-xs font-medium"
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
 
-                  {/* CTA */}
-                  {/* <Button
-                    variant="outline"
-                    size="sm"
-                    asChild
-                    className="group/btn border-primary/30 hover:border-primary hover:bg-primary/10 transition-all"
-                  >
+                  <div className="mt-auto flex flex-wrap items-center gap-4 pt-2">
+                    <a
+                      href={project.demoLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-primary transition-colors duration-300"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                      {project.demoLabel}
+                    </a>
                     <a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-primary transition-colors duration-300"
                     >
+                      <Github className="w-4 h-4" />
                       View Code
-                      <ExternalLink className="ml-2 w-4 h-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
                     </a>
-                  </Button> */}
+                  </div>
                 </div>
-              </motion.div>
+              </article>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
