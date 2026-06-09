@@ -14,7 +14,7 @@ export const Hero = () => {
           </p>
 
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold mb-6 leading-tight">
-            <span className="text-foreground">Hi, I&apos;m </span>
+            <span className="text-foreground">Hi, I'm </span>
             <span className="text-primary">Mukthanand</span>
           </h1>
 
@@ -36,7 +36,7 @@ export const Hero = () => {
               variant="outline"
               className="border-primary/35 text-foreground hover:border-primary hover:text-primary hover:bg-primary/10 px-8 py-6 text-base font-semibold rounded-xl transition-all duration-300"
             >
-              <a href="/resume.pdf" target="_blank" rel="noreferrer">
+              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
                 Read Resume (PDF)
               </a>
             </Button>
